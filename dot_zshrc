@@ -108,4 +108,4 @@ eval "$(mise activate zsh)"
 
 #Sahar's custom
 
-source ~.p10k.zsh
+source ~/dotfiles/.p10k.zsh
