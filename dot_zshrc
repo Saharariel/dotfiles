@@ -107,5 +107,6 @@ DISABLE_UPDATE_PROMPT=true
 eval "$(mise activate zsh)"
 
 #Sahar's custom
-source ~/dotfiles/.p10k.zsh
 export TERM=xterm-256color # For kitty terminal 
+eval "$(starship init zsh)"
+alias vim="nvim"

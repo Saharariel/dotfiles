@@ -3,11 +3,15 @@
 set -euo pipefail
 
 if command -v zsh >/dev/null; then
-    sudo chsh -s $(command -v zsh) $USER
+  sudo chsh -s $(command -v zsh) $USER
 fi
 
 if ! command -v chezmoi >/dev/null; then
-    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/Saharariel/dotfiles.git
+  sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply https://github.com/Saharariel/dotfiles.git
+fi
+
+if ! command -v starship >/dev/null; then
+  curl -sS https://starship.rs/install.sh | sh
 fi
 
 exit 0
