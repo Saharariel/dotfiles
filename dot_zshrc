@@ -108,6 +108,8 @@ eval "$(mise activate zsh)"
 
 #Sahar's custom
 export TERM=xterm-256color # For kitty terminal
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
 
 eval "$(starship init zsh)"
 export STARSHIP_CACHE=$XDG_CACHE_HOME/starship
