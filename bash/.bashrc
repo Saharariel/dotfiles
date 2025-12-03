@@ -33,6 +33,13 @@ eval "$(starship init bash)"
   -f /usr/share/bash-completion/bash_completion ]] &&
     . /usr/share/bash-completion/bash_completion
 
+# Zoxide
+eval "$(zoxide init bash)"
+
+
+# Exports
+export EDITOR=vim
+
 # Alias
 alias vim=nvim
 
