@@ -1,0 +1,34 @@
+[global]
+    follow = none
+    monitor = DP-3
+    width = 300
+    height = (0, 100)
+    offset = (10, 10)
+    origin = bottom-right
+    transparency = 0
+    frame_width = 2
+    frame_color = "#89b4fa"
+    corner_radius = 10
+    font = JetBrains Mono 10
+    padding = 12
+    horizontal_padding = 12
+    gap_size = 5
+    separator_color = auto
+    icon_corner_radius = 5
+    progress_bar_corner_radius = 5
+
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 5
+
+[urgency_normal]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    timeout = 10
+
+[urgency_critical]
+    background = "#1e1e2e"
+    foreground = "#f38ba8"
+    frame_color = "#f38ba8"
+    timeout = 0
