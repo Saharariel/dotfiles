@@ -5,17 +5,17 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-ssh-add ~/.ssh/ssh.key
+if [[ $(hostname) == "LAP221" ]]; then 
+   # toka-scripts
+    export PATH="$HOME/Scripts/path_scripts:$PATH"
+    alias sc="cd $HOME/Scripts/path_scripts"
+    alias pdu="$HOME/Scripts/python/pdu"
+    ssh-add ~/.ssh/ssh.key
 
 # follow XDG base dir specification
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-
-# scripts
-export PATH="$HOME/Scripts/path_scripts:$PATH"
-alias sc="cd $HOME/Scripts/path_scripts"
-alias pdu="$HOME/Scripts/python/pdu"
 
 # p10k prompt
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
