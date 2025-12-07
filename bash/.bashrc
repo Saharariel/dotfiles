@@ -27,6 +27,9 @@ unset rc
 # Starship Prompt
 eval "$(starship init bash)"
 
+# VI Mode
+set -o vi
+
 # bash-completion
 [[ $PS1 &&
   ! ${BASH_COMPLETION_VERSINFO:-} &&
