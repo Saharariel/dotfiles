@@ -1,6 +1,9 @@
 # Sahar .zshrc config
 ######################################
 
+# Homebrew (Linux only)
+[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # p10k prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -11,11 +14,13 @@ autoload -Uz compinit
 compinit
 
 if command -v brew &>/dev/null; then
+    # Brew Paths
     BREW_PREFIX=$(brew --prefix)
     source $BREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
     source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
@@ -45,14 +50,23 @@ export TERM=xterm-256color
 ################################
 # Zoxide init
 eval "$(zoxide init zsh)"
+
 # Kubernetes stuff
 alias k="kubectl"
 source <(kubectl completion zsh)
 . <(flux completion zsh)
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# fzf
+eval "$(fzf --zsh)"
+
+# VI Mode
+bindkey -v
 ################################
 
 ################################
 # Alias
 alias vim=nvim
-alias ll="ls -lah"
+alias ls='ls --color=auto'
+alias ll='ls -la --color=auto'
+
+setopt GLOB_DOTS
