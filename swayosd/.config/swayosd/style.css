@@ -1,0 +1,29 @@
+window {
+    background: alpha(#1e1e2e, 0.9);
+    border-radius: 12px;
+    padding: 12px;
+}
+
+#container {
+    color: #cdd6f4;
+}
+
+progressbar:disabled,
+image:disabled {
+    opacity: 0.5;
+}
+
+progressbar {
+    min-height: 6px;
+    border-radius: 999px;
+}
+
+progressbar trough {
+    background: alpha(#45475a, 0.5);
+    border-radius: 999px;
+}
+
+progressbar progress {
+    background: #89b4fa;
+    border-radius: 999px;
+}

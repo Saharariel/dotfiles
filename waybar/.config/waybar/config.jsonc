@@ -11,7 +11,7 @@
   ],
   "modules-center": [],
   "modules-right": [
-    "mpd",
+    "mpris",
     "pulseaudio",
     "network",
     "backlight",
@@ -24,6 +24,13 @@
       "*": 5, // 5 workspaces by default on every monitor
       "HDMI-A-1": 3 // but only three on HDMI-A-1
     }
+  },
+  "mpris": {
+    "format": "󰎈 {artist} - {title}",
+    "format-paused": "󰏤 {artist} - {title}",
+    "player": "chromium",
+    "max-length": 25,
+    "on-click": "playerctl -p chromium play-pause"
   },
   "mpd": {
     "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
@@ -60,7 +67,7 @@
   },
   "tray": {
     // "icon-size": 21,
-    "spacing": 10,
+    "spacing": 10
     // "icons": {
     //   "blueman": "bluetooth",
     //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
