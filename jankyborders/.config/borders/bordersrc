@@ -2,11 +2,12 @@
 
 # Colors taken from tokyonight theme
 red="0xfff7768e"
+pine="0xffeb6f92"
 blue="0xff7aa2f7"
 transparent="0x00000000"
 
 options=(
-  active_color="$red"
+  active_color="$blue"
   inactive_color="$transparent"
   hidpi=on
   style=round

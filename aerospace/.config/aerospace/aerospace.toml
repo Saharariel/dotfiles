@@ -102,12 +102,16 @@ check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
+if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
+if.app-id = 'com.google.Chrome'
 run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.pycharm'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
@@ -129,13 +133,12 @@ preset = 'qwerty'
 [mode.main.binding]
 # Open/focus apps using keybinds
 # See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-cmd-alt-ctrl-shift-b = 'exec-and-forget open -a "Brave Browser.app"'
-cmd-alt-ctrl-shift-d = 'exec-and-forget open -a "IntelliJ IDEA Ultimate.app"'
-cmd-alt-ctrl-shift-a = 'exec-and-forget open -a "Ghostty.app"'
-cmd-alt-ctrl-shift-z = 'exec-and-forget open -a "Obsidian.app"'
-cmd-alt-ctrl-shift-r = 'exec-and-forget open -a "Windows App"'
-cmd-alt-ctrl-shift-c = 'exec-and-forget open -a "Slack.app"'
-cmd-alt-ctrl-shift-h = 'exec-and-forget open -a "Claude.app"'
+# cmd-alt-ctrl-shift-b = 'exec-and-forget open -a "Chrome.app"'
+# cmd-alt-ctrl-shift-a = 'exec-and-forget open -a "Ghostty.app"'
+# cmd-alt-ctrl-shift-z = 'exec-and-forget open -a "Obsidian.app"'
+# cmd-alt-ctrl-shift-r = 'exec-and-forget open -a "Windows App"'
+# cmd-alt-ctrl-shift-c = 'exec-and-forget open -a "Slack.app"'
+# cmd-alt-ctrl-shift-h = 'exec-and-forget open -a "Claude.app"'
 
 # Switch between layouts
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
@@ -154,17 +157,17 @@ cmd-alt-ctrl-shift-enter = 'macos-native-fullscreen'
 
 # Switch window focus
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-cmd-alt-ctrl-shift-n = 'focus left'
-cmd-alt-ctrl-shift-e = 'focus down'
-cmd-alt-ctrl-shift-i = 'focus up'
-cmd-alt-ctrl-shift-o = 'focus right'
+ctrl-shift-left = 'focus left'
+ctrl-shift-down = 'focus down'
+ctrl-shift-up = 'focus up'
+ctrl-shift-right = 'focus right'
 
 # Move windows in the given direction
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
-cmd-alt-ctrl-shift-left = 'move left'
-cmd-alt-ctrl-shift-down = 'move down'
-cmd-alt-ctrl-shift-up = 'move up'
-cmd-alt-ctrl-shift-right = 'move right'
+ctrl-cmd-shift-left = 'move left'
+ctrl-cmd-shift-down = 'move down'
+ctrl-cmd-shift-up = 'move up'
+ctrl-cmd-shift-right = 'move right'
 
 # Switch display focus
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus-monitor
@@ -175,27 +178,27 @@ cmd-alt-ctrl-shift-quote = 'focus-monitor right'
 
 # Switch workspaces
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-cmd-alt-ctrl-shift-1 = 'workspace 1'
-cmd-alt-ctrl-shift-2 = 'workspace 2'
-cmd-alt-ctrl-shift-3 = 'workspace 3'
-cmd-alt-ctrl-shift-4 = 'workspace 4'
-cmd-alt-ctrl-shift-5 = 'workspace 5'
-cmd-alt-ctrl-shift-6 = 'workspace 6'
-cmd-alt-ctrl-shift-7 = 'workspace 7'
-cmd-alt-ctrl-shift-8 = 'workspace 8'
-cmd-alt-ctrl-shift-9 = 'workspace 9'
+cmd-1 = 'workspace 1'
+cmd-2 = 'workspace 2'
+cmd-3 = 'workspace 3'
+cmd-4 = 'workspace 4'
+cmd-5 = 'workspace 5'
+cmd-6 = 'workspace 6'
+cmd-7 = 'workspace 7'
+cmd-8 = 'workspace 8'
+cmd-9 = 'workspace 9'
 
 # Move windows/nodes to other workspaces
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-cmd-alt-ctrl-shift-f1 = ['move-node-to-workspace 1', 'workspace 1']
-cmd-alt-ctrl-shift-f2 = ['move-node-to-workspace 2', 'workspace 2']
-cmd-alt-ctrl-shift-f3 = ['move-node-to-workspace 3', 'workspace 3']
-cmd-alt-ctrl-shift-f4 = ['move-node-to-workspace 4', 'workspace 4']
-cmd-alt-ctrl-shift-f5 = ['move-node-to-workspace 5', 'workspace 5']
-cmd-alt-ctrl-shift-f6 = ['move-node-to-workspace 6', 'workspace 6']
-cmd-alt-ctrl-shift-f7 = ['move-node-to-workspace 7', 'workspace 7']
-cmd-alt-ctrl-shift-f8 = ['move-node-to-workspace 8', 'workspace 8']
-cmd-alt-ctrl-shift-f9 = ['move-node-to-workspace 9', 'workspace 9']
+cmd-ctrl-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+cmd-ctrl-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+cmd-ctrl-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+cmd-ctrl-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+cmd-ctrl-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+cmd-ctrl-shift-6 = ['move-node-to-workspace 6', 'workspace 6']
+cmd-ctrl-shift-7 = ['move-node-to-workspace 7', 'workspace 7']
+cmd-ctrl-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
+cmd-ctrl-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 
 # Switch focus between the two last used workspaces
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth

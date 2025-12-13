@@ -28,7 +28,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 ######################################
 # Work Laptop
-if [[ $(hostname) == "LAP221" ]]; then
+if [[ $(hostname) == "LAP221.local" ]]; then
    # toka-scripts
     export PATH="$HOME/Scripts/path_scripts:$PATH"
     alias sc="cd $HOME/Scripts/path_scripts"

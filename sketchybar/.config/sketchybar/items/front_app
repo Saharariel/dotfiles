@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/environment"
-source "$THEME_DIR/tokyonight"
 
 LABEL_COLOR="$red"
 BRACKET_BACKGROUND_BORDER_COLOR="$red"

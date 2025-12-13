@@ -1,20 +1,19 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/environment"
-source "$THEME_DIR/tokyonight"
 
 # Configure general bar appearance.
 bar=(
-    blur_radius="$BAR_BLUR_RADIUS"
-    border_color="$BAR_BORDER_COLOR"
-    color="$BAR_COLOR"
-    corner_radius="$BAR_CORNER_RADIUS"
-    height="$BAR_HEIGHT"
-    margin="$BAR_MARGIN"
-    position="$BAR_POSITION"
-    padding_left="$BAR_PADDING"
-    padding_right="$BAR_PADDING"
-    y_offset="$BAR_Y_OFFSET"
+  blur_radius="$BAR_BLUR_RADIUS"
+  border_color="$BAR_BORDER_COLOR"
+  color="$BAR_COLOR"
+  corner_radius="$BAR_CORNER_RADIUS"
+  height="$BAR_HEIGHT"
+  margin="$BAR_MARGIN"
+  position="$BAR_POSITION"
+  padding_left="$BAR_PADDING"
+  padding_right="$BAR_PADDING"
+  y_offset="$BAR_Y_OFFSET"
 )
 sketchybar --bar "${bar[@]}"
 

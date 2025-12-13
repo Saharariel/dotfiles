@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 source "$CONFIG_DIR/environment"
-source "$THEME_DIR/tokyonight"
 
 sketchybar --add item clock_spacer_right right \
            --set      clock_spacer_right \

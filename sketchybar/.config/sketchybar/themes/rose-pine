@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+# Rose Pine Color Palette
+base="0xff191724"
+surface="0xff1f1d2e"
+overlay="0xff26233a"
+overlay_semitransparent="0xaa26233a"
+muted="0xff6e6a86"
+subtle="0xff908caa"
+text="0xffe0def4"
+love="0xffeb6f92"
+gold="0xfff6c177"
+rose="0xffebbcba"
+pine="0xff31748f"
+foam="0xff9ccfd8"
+iris="0xffc4a7e7"
+highlight_med="0xff403d52"
+transparent="0x00000000"
+
+# Defaults
+BAR_BLUR_RADIUS=30
+BAR_COLOR="$transparent"
+BAR_CORNER_RADIUS=12
+BAR_HEIGHT=24
+BAR_MARGIN=6
+BAR_PADDING=0
+BAR_POSITION="top"
+BAR_Y_OFFSET=6
+BACKGROUND_BORDER_COLOR="$love"
+BACKGROUND_BORDER_WIDTH=2
+BACKGROUND_COLOR="$overlay_semitransparent"
+BACKGROUND_CORNER_RADIUS=4
+BACKGROUND_HEIGHT=24
+BRACKET_BACKGROUND_BORDER_COLOR="$iris"
+BRACKET_BACKGROUND_BORDER_WIDTH=0
+BRACKET_BACKGROUND_COLOR="$overlay_semitransparent"
+BRACKET_BACKGROUND_CORNER_RADIUS=12
+ICON_BASE_FONT="SF Pro"
+ICON_FONT="$ICON_BASE_FONT:Bold:14.0"
+LABEL_ALIGN="center"
+LABEL_BASE_FONT="JetBrainsMono Nerd Font"
+LABEL_COLOR="$iris"
+LABEL_FONT="$LABEL_BASE_FONT:Regular:14.0"
+LABEL_HIGHLIGHT_COLOR="$love"
+LABEL_HIGHLIGHT_FONT="$LABEL_BASE_FONT:ExtraBold:14.0"
+LABEL_PADDING=6
+LABEL_Y_OFFSET=1
+
+# Compatibility aliases for Tokyo Night variable names
+red="$love"
+blue="$iris"
