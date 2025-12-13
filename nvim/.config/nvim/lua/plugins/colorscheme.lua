@@ -9,7 +9,7 @@ return {
       local hostname = vim.fn.hostname()
       local colorscheme = "rose-pine" -- default for work and everything else
 
-      if hostname == "LAP221.local" then
+      if hostname == "LAP221-2.local" then
         colorscheme = "kanagawa-dragon"
       end
 
