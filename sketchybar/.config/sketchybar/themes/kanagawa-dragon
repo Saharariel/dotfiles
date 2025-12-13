@@ -1,19 +1,27 @@
 #!/usr/bin/env bash
-# Dracula Color Palette (VERY obvious colors for testing)
-background="0xff282a36"
-current_line="0xff44475a"
-foreground="0xfff8f8f2"
-comment="0xff6272a4"
-cyan="0xff8be9fd"
-green="0xff50fa7b"
-orange="0xffffb86c"
-pink="0xffff79c6"
-purple="0xffbd93f9"
-red="0xffff5555"
-yellow="0xfff1fa8c"
+# Kanagawa Dragon Color Palette
+bg_dark="0xff181616"
+bg="0xff1a1a1a"
+bg_light="0xff282727"
+fg="0xffc5c9c5"
+fg_dim="0xff8a8a8a"
+fg_reverse="0xff181616"
+
+# Kanagawa colors
+black="0xff0d0c0c"
+red="0xffc4746e"
+green="0xff8a9a7b"
+yellow="0xffc4b28a"
+blue="0xff8ba4b0"
+magenta="0xffa292a3"
+cyan="0xff8ea4a2"
+white="0xffc5c9c5"
+orange="0xffb6927b"
+pink="0xffd27e99"
+
 transparent="0x00000000"
 
-# Defaults with BRIGHT colors
+# Sketchybar defaults
 BAR_BLUR_RADIUS=30
 BAR_COLOR="$transparent"
 BAR_CORNER_RADIUS=12
@@ -22,22 +30,26 @@ BAR_MARGIN=6
 BAR_PADDING=0
 BAR_POSITION="top"
 BAR_Y_OFFSET=6
-BACKGROUND_BORDER_COLOR="$pink"
+
+BACKGROUND_BORDER_COLOR="$red"
 BACKGROUND_BORDER_WIDTH=2
-BACKGROUND_COLOR="0xaa44475a"
+BACKGROUND_COLOR="0xaa1a1a1a"
 BACKGROUND_CORNER_RADIUS=4
 BACKGROUND_HEIGHT=24
-BRACKET_BACKGROUND_BORDER_COLOR="$purple"
+
+BRACKET_BACKGROUND_BORDER_COLOR="$blue"
 BRACKET_BACKGROUND_BORDER_WIDTH=0
-BRACKET_BACKGROUND_COLOR="0xaa44475a"
+BRACKET_BACKGROUND_COLOR="0xaa1a1a1a"
 BRACKET_BACKGROUND_CORNER_RADIUS=12
+
 ICON_BASE_FONT="SF Pro"
 ICON_FONT="$ICON_BASE_FONT:Bold:14.0"
+
 LABEL_ALIGN="center"
 LABEL_BASE_FONT="JetBrainsMono Nerd Font"
-LABEL_COLOR="$purple"
+LABEL_COLOR="$blue"
 LABEL_FONT="$LABEL_BASE_FONT:Regular:14.0"
-LABEL_HIGHLIGHT_COLOR="$pink"
+LABEL_HIGHLIGHT_COLOR="$red"
 LABEL_HIGHLIGHT_FONT="$LABEL_BASE_FONT:ExtraBold:14.0"
 LABEL_PADDING=6
 LABEL_Y_OFFSET=1

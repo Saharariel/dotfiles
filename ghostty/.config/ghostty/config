@@ -2,9 +2,12 @@
 font-size = 16
 font-style = medium
 bold-is-bright = true
-# theme = Afterglow
-theme = Rose Pine
 font-family = "MesloLGS NF"
+
+# Theme
+# theme = Afterglow
+# theme = Rose Pine
+theme = kanagawa-dragon
 
 # cursor
 cursor-style = block

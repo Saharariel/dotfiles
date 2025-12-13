@@ -5,4 +5,4 @@ ITEM_DIR="$CONFIG_DIR/items"
 THEME_DIR="$CONFIG_DIR/themes"
 
 # Source theme once here so all files get it
-source "$THEME_DIR/rose-pine"
+source "$THEME_DIR/kanagawa-dragon"

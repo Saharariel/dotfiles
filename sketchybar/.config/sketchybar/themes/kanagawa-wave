@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Kanagawa Wave Color Palette (Default Dark)
+bg_dark="0xff1f1f28"
+bg="0xff223249"
+bg_light="0xff2a2a37"
+fg="0xffdcd7ba"
+fg_dim="0xffc8c093"
+fg_reverse="0xff1f1f28"
+
+# Kanagawa Wave colors
+black="0xff090618"
+red="0xffc34043"
+green="0xff76946a"
+yellow="0xffc0a36e"
+blue="0xff7e9cd8"
+magenta="0xff957fb8"
+cyan="0xff6a9589"
+white="0xffc8c093"
+orange="0xffffa066"
+pink="0xffd27e99"
+
+transparent="0x00000000"
+
+# Sketchybar defaults
+BAR_BLUR_RADIUS=30
+BAR_COLOR="$transparent"
+BAR_CORNER_RADIUS=12
+BAR_HEIGHT=24
+BAR_MARGIN=6
+BAR_PADDING=0
+BAR_POSITION="top"
+BAR_Y_OFFSET=6
+
+BACKGROUND_BORDER_COLOR="$red"
+BACKGROUND_BORDER_WIDTH=2
+BACKGROUND_COLOR="0xaa223249"
+BACKGROUND_CORNER_RADIUS=4
+BACKGROUND_HEIGHT=24
+
+BRACKET_BACKGROUND_BORDER_COLOR="$blue"
+BRACKET_BACKGROUND_BORDER_WIDTH=0
+BRACKET_BACKGROUND_COLOR="0xaa223249"
+BRACKET_BACKGROUND_CORNER_RADIUS=12
+
+ICON_BASE_FONT="SF Pro"
+ICON_FONT="$ICON_BASE_FONT:Bold:14.0"
+
+LABEL_ALIGN="center"
+LABEL_BASE_FONT="JetBrainsMono Nerd Font"
+LABEL_COLOR="$blue"
+LABEL_FONT="$LABEL_BASE_FONT:Regular:14.0"
+LABEL_HIGHLIGHT_COLOR="$red"
+LABEL_HIGHLIGHT_FONT="$LABEL_BASE_FONT:ExtraBold:14.0"
+LABEL_PADDING=6
+LABEL_Y_OFFSET=1
+
+# Compatibility aliases
+red="$red"
+blue="$blue"
