@@ -1,0 +1,4 @@
+[server]
+show_percentage = true
+top_margin = 0.85      # Position (0.0-1.0 from top)
+max_volume = 150       # Optional: max volume cap

@@ -2,7 +2,8 @@
 font-size = 16
 font-style = medium
 bold-is-bright = true
-theme = Afterglow
+# theme = Afterglow
+theme = rose-pine
 font-family = "MesloLGS NF"
 
 # cursor
