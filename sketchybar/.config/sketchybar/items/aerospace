@@ -57,7 +57,7 @@ create_workspace_bracket_for_monitor() {
 sketchybar --add event aerospace_workspace_change
 sketchybar --add event aerospace_service_mode_enabled_changed
 
-monitor_ids=($(aerospace list-monitors | awk '{print $1}'))
+monitor_ids=($(aerospace list-monitors | awk '{print $1}' | sort -n))
 
 # TODO:
 # - Update this view when moving workspaces to a different monitors.
