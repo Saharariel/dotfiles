@@ -36,6 +36,8 @@ if [[ $(hostname) == "LAP221-2.local" ]]; then
     ssh-add ~/.ssh/ssh.key
     # Docker CLI completions
     fpath=(/Users/lap221/.docker/completions $fpath)
+    # vvr-clusters
+    export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/vps-cluster
 fi
 ######################################
 
@@ -61,7 +63,6 @@ eval "$(fzf --zsh)"
 
 # VI Mode
 # bindkey -v
-# bindkey -e
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ################################
 
