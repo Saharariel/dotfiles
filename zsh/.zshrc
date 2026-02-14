@@ -60,7 +60,9 @@ source <(kubectl completion zsh)
 eval "$(fzf --zsh)"
 
 # VI Mode
-bindkey -v
+# bindkey -v
+# bindkey -e
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ################################
 
 ################################
