@@ -36,8 +36,7 @@ if [[ $(hostname) == "LAP221-2.local" ]]; then
     ssh-add ~/.ssh/ssh.key
     # Docker CLI completions
     fpath=(/Users/lap221/.docker/completions $fpath)
-    # vvr-clusters
-    export KUBECONFIG=$HOME/.kube/config:$HOME/.kube/vps-cluster
+    export NODE_EXTRA_CA_CERTS=~/system-certs.pem
 fi
 ######################################
 
@@ -58,11 +57,11 @@ alias k="kubectl"
 source <(kubectl completion zsh)
 . <(flux completion zsh)
 
-# fzf
-eval "$(fzf --zsh)"
-
-# VI Mode
+# VI Mode + fzf
 # bindkey -v
+function zvm_after_init() {
+  eval "$(fzf --zsh)"
+}
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 ################################
 
@@ -73,3 +72,4 @@ alias ls='ls --color=auto'
 alias ll='ls -la --color=auto'
 
 setopt GLOB_DOTS
+export PATH="$HOME/.local/bin:$PATH"
