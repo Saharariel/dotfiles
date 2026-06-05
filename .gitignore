@@ -1,0 +1,6 @@
+# Private / machine-local config — never tracked (lives in $HOME, not the repo)
+.zshrc.local
+*.local
+
+# zsh completion + dump cache (regenerated on startup)
+.zcompdump*

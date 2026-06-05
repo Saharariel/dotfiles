@@ -1,0 +1,6 @@
+# macOS-specific zsh config
+######################################
+
+# Homebrew (Apple Silicon). Login shells get this via ~/.zprofile; this makes
+# non-login interactive shells work too. Harmless if already loaded.
+[[ -x /opt/homebrew/bin/brew ]] && eval "$(/opt/homebrew/bin/brew shellenv)"
