@@ -11,4 +11,6 @@
 ^/LICENSE.*
 ^/.gitignore.*
 ^/bootstrap.*
+^/install.sh
+^/scripts # repo tooling, run in place — not symlinked into $HOME
 
