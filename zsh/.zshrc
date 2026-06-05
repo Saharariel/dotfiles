@@ -9,17 +9,19 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Completions (must be before kubectl/flux)
-autoload -Uz compinit
-compinit
-
+# Completion paths (must be before compinit)
+fpath=(/usr/share/zsh/site-functions $fpath)
 if command -v brew &>/dev/null; then
-    # Brew Paths
     BREW_PREFIX=$(brew --prefix)
+    fpath=($BREW_PREFIX/share/zsh/site-functions $fpath)
     source $BREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
     source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source $BREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# Completions (after fpath is set up)
+autoload -Uz compinit
+compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -73,3 +75,5 @@ alias ll='ls -la --color=auto'
 
 setopt GLOB_DOTS
 export PATH="$HOME/.local/bin:$PATH"
+
+. "$HOME/.local/share/../bin/env"

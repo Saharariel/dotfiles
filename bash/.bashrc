@@ -51,3 +51,5 @@ source <(kubectl completion bash)
 alias k=kubectl
 complete -o default -F __start_kubectl k
 . <(flux completion bash)
+
+. "$HOME/.local/share/../bin/env"
