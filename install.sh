@@ -11,8 +11,22 @@ echo " Dotfiles bootstrap — $(uname -s)"
 echo "========================================="
 
 case "$(uname -s)" in
-  Darwin) ./scripts/packages-macos.sh   ;;
-  Linux)  ./scripts/packages-bazzite.sh ;;
+  Darwin) ./scripts/packages-macos.sh ;;
+  Linux)
+    # Pick the Linux package path by distro family: Debian/Ubuntu (incl. dev
+    # containers) use apt; everything else falls back to the Bazzite/brew path.
+    distro_id=""; distro_like=""
+    if [[ -r /etc/os-release ]]; then
+      # shellcheck disable=SC1091
+      . /etc/os-release
+      distro_id="${ID:-}"; distro_like="${ID_LIKE:-}"
+    fi
+    if [[ "$distro_id" =~ ^(debian|ubuntu)$ || "$distro_like" == *debian* ]]; then
+      ./scripts/packages-debian.sh
+    else
+      ./scripts/packages-bazzite.sh
+    fi
+    ;;
   *) echo "❌ Unsupported OS: $(uname -s)" >&2; exit 1 ;;
 esac
 
