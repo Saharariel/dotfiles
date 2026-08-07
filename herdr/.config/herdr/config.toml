@@ -1,0 +1,16 @@
+onboarding = false
+[keys]
+prefix = "ctrl+b"
+detach = "prefix+d"
+goto = "prefix+g"
+new_tab = "prefix+c"
+next_tab = "prefix+n"
+previous_tab = "prefix+p"
+navigate_workspace_down = "j"
+navigate_pane_down = "ctrl+j"
+split_horizontal = "prefix+minus"
+split_vertical = "prefix+|"
+focus_pane_left = ["prefix+h", "ctrl+alt+h"]
+focus_pane_down = ["prefix+j", "ctrl+alt+j"]
+focus_pane_up = ["prefix+k", "ctrl+alt+k"]
+focus_pane_right = ["prefix+l", "ctrl+alt+l"]

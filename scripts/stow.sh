@@ -13,7 +13,7 @@ if ! command -v stow &>/dev/null; then
 fi
 
 # Cross-platform configs (terminals, editor, shell, prompt).
-SHARED=(zsh nvim tmux p10k ghostty kitty)
+SHARED=(zsh nvim tmux p10k ghostty kitty herdr)
 
 # Shell + editor only — for headless dev containers (no terminal emulator,
 # no desktop). Skips ghostty/kitty since the terminal runs on the host.
