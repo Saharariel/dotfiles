@@ -84,7 +84,9 @@ setopt HIST_VERIFY            # expand !! etc. into the line before running
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export TERM=xterm-256color
+# Preserve the terminal's negotiated TERM value. Only provide a fallback when
+# a shell was started without one.
+export TERM="${TERM:-xterm-256color}"
 
 ######################################
 # Tools
@@ -108,8 +110,12 @@ function zvm_after_init() {
 # Aliases
 ######################################
 alias vim=nvim
-alias ls='ls --color=auto'
-alias ll='ls -la --color=auto'
+if ls --color=auto >/dev/null 2>&1 </dev/null; then
+  alias ls='ls --color=auto'
+  alias ll='ls -la --color=auto'
+else
+  alias ll='ls -la'
+fi
 
 setopt GLOB_DOTS
 export PATH="$HOME/.local/bin:$PATH"

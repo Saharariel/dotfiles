@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Small interactive front-end over the scriptable dotfiles commands.
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+profile="${DOTFILES_PROFILE:-}"
+if [[ -z "$profile" ]]; then
+  case "$(uname -s)" in
+    Darwin) profile=macos-work ;;
+    Linux)
+      [[ -r /etc/os-release ]] && . /etc/os-release
+      if [[ "${ID:-}" =~ ^(debian|ubuntu)$ || "${ID_LIKE:-}" == *debian* ]]; then
+        profile=devcontainer
+      else
+        profile=bazzite-hyprland
+      fi
+      ;;
+    *) echo "Unsupported OS: $(uname -s)" >&2; exit 1 ;;
+  esac
+fi
+
+select_profile() {
+  echo "Select profile (current: $profile):"
+  select choice in macos-work bazzite-hyprland devcontainer; do
+    case "$choice" in
+      macos-work|bazzite-hyprland|devcontainer) profile="$choice"; return ;;
+      *) echo "Choose 1, 2, or 3." ;;
+    esac
+  done
+}
+
+select_profile
+printf '\nProfile: %s\n' "$profile"
+echo "Select action:"
+select action in install link doctor update quit; do
+  case "$action" in
+    install) exec ./install.sh --profile "$profile" ;;
+    link) exec ./scripts/stow.sh --profile "$profile" ;;
+    doctor) exec ./scripts/doctor.sh --profile "$profile" ;;
+    update)
+      case "$profile" in
+        macos-work|bazzite-hyprland) exec brew update ;;
+        devcontainer) echo "Update the container image, then rerun install." ; exit 0 ;;
+      esac
+      ;;
+    quit) exit 0 ;;
+    *) echo "Choose an available action." ;;
+  esac
+done

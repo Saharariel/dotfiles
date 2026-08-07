@@ -1,11 +1,34 @@
 #!/usr/bin/env bash
 # Symlink dotfile packages into $HOME using GNU stow.
-# Shared packages go on every machine; the rest are picked per-OS.
+# Shared packages are combined with an explicit machine profile.
 set -euo pipefail
 
 # Repo root is the parent of this script's directory.
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$DOTFILES"
+
+PROFILE=""
+while (($#)); do
+  case "$1" in
+    --profile) [[ $# -ge 2 ]] || { echo "Missing profile name" >&2; exit 2; }; PROFILE="$2"; shift 2 ;;
+    *) echo "Unknown option: $1" >&2; exit 2 ;;
+  esac
+done
+
+if [[ -z "$PROFILE" ]]; then
+  case "$(uname -s)" in
+    Darwin) PROFILE=macos-work ;;
+    Linux) PROFILE=bazzite-hyprland ;;
+    *) echo "Unsupported OS: $(uname -s)" >&2; exit 1 ;;
+  esac
+fi
+
+case "$PROFILE" in
+  macos-work) DESKTOP=(aerospace sketchybar jankyborders) ;;
+  bazzite-hyprland) DESKTOP=(hyprland waybar swayosd dunst) ;;
+  devcontainer) DESKTOP=() ;;
+  *) echo "Unsupported profile: $PROFILE" >&2; exit 2 ;;
+esac
 
 if ! command -v stow &>/dev/null; then
   echo "❌ stow not found. Install it first (run packages-*.sh)." >&2
@@ -19,28 +42,10 @@ SHARED=(zsh nvim tmux p10k ghostty kitty herdr)
 # no desktop). Skips ghostty/kitty since the terminal runs on the host.
 CONTAINER=(zsh nvim tmux p10k)
 
-# OS-specific desktop / window-manager configs.
-MACOS=(aerospace sketchybar jankyborders)
-LINUX=(hyprland waybar swayosd dunst)
-
 # Treat Debian/Ubuntu as a dev-container target: shell+editor configs only.
-is_debian() {
-  [[ -r /etc/os-release ]] || return 1
-  # shellcheck disable=SC1091
-  . /etc/os-release
-  [[ "${ID:-}" =~ ^(debian|ubuntu)$ || "${ID_LIKE:-}" == *debian* ]]
-}
-
-case "$(uname -s)" in
-  Darwin) PACKAGES=("${SHARED[@]}" "${MACOS[@]}") ;;
-  Linux)
-    if is_debian; then
-      PACKAGES=("${CONTAINER[@]}")
-    else
-      PACKAGES=("${SHARED[@]}" "${LINUX[@]}")
-    fi
-    ;;
-  *) echo "❌ Unsupported OS: $(uname -s)" >&2; exit 1 ;;
+case "$PROFILE" in
+  devcontainer) PACKAGES=("${CONTAINER[@]}") ;;
+  *) PACKAGES=("${SHARED[@]}" "${DESKTOP[@]}") ;;
 esac
 
 # Dev-container base images ship real ~/.zshrc / ~/.bashrc files. stow won't
@@ -56,6 +61,7 @@ for pkg in "${PACKAGES[@]}"; do
   mv "$HOME/$rc" "$HOME/$rc.pre-stow"
 done
 
+echo "→ Profile: $PROFILE"
 echo "→ Stowing: ${PACKAGES[*]}"
 # --restow cleanly re-links (handles renamed/removed files); adopt is intentionally
 # NOT used so existing real files are reported as conflicts instead of overwritten.
