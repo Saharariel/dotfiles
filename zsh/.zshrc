@@ -130,3 +130,4 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # Machine-specific / private overrides (untracked, e.g. work secrets)
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
+export UV_NATIVE_TLS=1
