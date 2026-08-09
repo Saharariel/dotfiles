@@ -19,6 +19,7 @@ CLI_TOOLS=(
   wget
   htop
   neovim
+  tree-sitter-cli
   tmux
   fzf
   zoxide
@@ -151,3 +152,4 @@ NOTES:
     image or `ujust` recipes, not ad-hoc layering. Install those, then re-run
     ./scripts/stow.sh to drop in your configs.
   • After this, run `exec zsh` to reload your shell.
+NOTES

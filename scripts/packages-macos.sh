@@ -12,6 +12,7 @@ CLI_TOOLS=(
   wget
   htop
   neovim
+  tree-sitter-cli
   tmux
   fzf
   zoxide
