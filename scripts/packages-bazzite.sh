@@ -7,6 +7,7 @@ set -euo pipefail
 # Strategy on an atomic/immutable distro:
 #   • Homebrew  → CLI tools & shell stuff (no reboot, same as macOS)
 #   • flatpak   → GUI applications
+#   • upstream  → apps installed through their official installer
 #   • rpm-ostree→ system-level packages only (LAST resort; needs a reboot)
 # The Hyprland/Wayland desktop stack on Bazzite is best installed via its own
 # image/ujust workflow — see NOTES at the bottom rather than layering it here.
@@ -37,6 +38,9 @@ FLATPAKS=(
   # com.mitchellh.ghostty
   # dev.zed.Zed
 )
+
+# Official upstream installers
+VICINAE_INSTALL_URL="https://vicinae.com/install"
 
 # System packages that genuinely need to be layered on the base image.
 # Each entry here triggers a reboot to apply. Keep this list as small as possible.
@@ -89,6 +93,16 @@ for pkg in "${CLI_TOOLS[@]}"; do brew_install "$pkg"; done
 print_header "Installing Shell Enhancements"
 for pkg in "${SHELL_TOOLS[@]}"; do brew_install "$pkg"; done
 
+# --- upstream applications ---
+print_header "Installing Upstream Applications"
+if command -v vicinae &>/dev/null; then
+  print_skip "Vicinae"
+else
+  print_info "Installing Vicinae..."
+  curl -fsSL "$VICINAE_INSTALL_URL" | bash
+  print_success "Vicinae installed"
+fi
+
 # --- flatpak GUI apps ---
 if ((${#FLATPAKS[@]})); then
   print_header "Installing Flatpak Applications"
@@ -128,7 +142,7 @@ if ((${#RPM_OSTREE[@]})); then
 fi
 
 print_header "Done"
-echo "📦 CLI: ${#CLI_TOOLS[@]} · Shell: ${#SHELL_TOOLS[@]} · Flatpaks: ${#FLATPAKS[@]} · Layered: ${#RPM_OSTREE[@]}"
+echo "📦 CLI: ${#CLI_TOOLS[@]} · Shell: ${#SHELL_TOOLS[@]} · Upstream: Vicinae · Flatpaks: ${#FLATPAKS[@]} · Layered: ${#RPM_OSTREE[@]}"
 cat <<'NOTES'
 
 NOTES:
@@ -137,4 +151,3 @@ NOTES:
     image or `ujust` recipes, not ad-hoc layering. Install those, then re-run
     ./scripts/stow.sh to drop in your configs.
   • After this, run `exec zsh` to reload your shell.
-NOTES
