@@ -15,3 +15,6 @@ focus_pane_down = ["prefix+j", "ctrl+alt+j"]
 focus_pane_up = ["prefix+k", "ctrl+alt+k"]
 focus_pane_right = ["prefix+l", "ctrl+alt+l"]
 next_agent = "prefix+a"
+
+[ui]
+agent_panel_sort = "spaces"
