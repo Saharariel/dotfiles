@@ -27,13 +27,6 @@ return {
     },
   },
   {
-    'mason-org/mason-lspconfig.nvim',
-    opts = {
-      ensure_installed = { 'basedpyright', 'ruff' },
-      automatic_enable = { 'basedpyright', 'ruff' },
-    },
-  },
-  {
     'nvim-treesitter/nvim-treesitter',
     opts = { ensure_installed = { 'python' } },
   },

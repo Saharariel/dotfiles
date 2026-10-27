@@ -14,26 +14,43 @@ return {
   {
     'neovim/nvim-lspconfig',
     lazy = false,
-    dependencies = { 'saghen/blink.cmp' },
-    opts = { servers = {} },
+    dependencies = {
+      'saghen/blink.cmp',
+      { 'mason-org/mason.nvim', opts = {} },
+      'mason-org/mason-lspconfig.nvim',
+    },
+    opts = {
+      servers = {
+        vtsls = {}, -- JavaScript, TypeScript, JSX, and TSX.
+        gopls = {},
+        rust_analyzer = {},
+        clangd = {}, -- C and C++.
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = { globals = { 'vim' } },
+              workspace = {
+                library = { vim.env.VIMRUNTIME },
+                checkThirdParty = false,
+              },
+            },
+          },
+        },
+      },
+    },
     config = function(_, opts)
       for server, server_opts in pairs(opts.servers) do
         server_opts.capabilities = require('blink.cmp').get_lsp_capabilities(server_opts.capabilities)
         vim.lsp.config(server, server_opts)
       end
+
+      -- Use the merged server map, including language-specific plugin specs.
+      local servers = vim.tbl_keys(opts.servers)
+      table.sort(servers)
+      require('mason-lspconfig').setup({
+        ensure_installed = servers,
+        automatic_enable = servers,
+      })
     end,
-  },
-  {
-    'mason-org/mason-lspconfig.nvim',
-    lazy = false,
-    dependencies = {
-      { 'mason-org/mason.nvim', opts = {} },
-      'neovim/nvim-lspconfig',
-    },
-    opts = {
-      ensure_installed = {},
-      automatic_enable = {},
-    },
-    opts_extend = { 'ensure_installed', 'automatic_enable' },
   },
 }

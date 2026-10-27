@@ -5,9 +5,9 @@
     "output": "DP-3",
     // "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 32, // Waybar height (to be removed for auto height)
+    "height": 36, // Waybar height (to be removed for auto height)
     "margin-bottom": 18,
-    "width": 1280, // Waybar width
+    "width": 1600, // Waybar width
     // Choose the order of the modules
     "modules-left": [
       "hyprland/workspaces"
@@ -80,9 +80,9 @@
   {
     "output": "DP-2",
     "position": "bottom",
-    "height": 32,
+    "height": 36,
     "margin-bottom": 18,
-    "width": 800,
+    "width": 950,
     "modules-left": [
       "hyprland/workspaces"
     ],
