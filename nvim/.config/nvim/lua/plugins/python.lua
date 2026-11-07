@@ -29,5 +29,6 @@ return {
   {
     'nvim-treesitter/nvim-treesitter',
     opts = { ensure_installed = { 'python' } },
+    opts_extend = { 'ensure_installed' },
   },
 }
