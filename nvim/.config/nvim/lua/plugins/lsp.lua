@@ -39,6 +39,8 @@ return {
       },
     },
     config = function(_, opts)
+      vim.lsp.inlay_hint.enable() -- inferred types / parameter names inline; <leader>i toggles
+
       for server, server_opts in pairs(opts.servers) do
         server_opts.capabilities = require('blink.cmp').get_lsp_capabilities(server_opts.capabilities)
         vim.lsp.config(server, server_opts)
