@@ -50,6 +50,19 @@ return {
     'folke/persistence.nvim',
     event = 'BufReadPre',
     opts = {},
+    init = function()
+      -- Plain `nvim` (no files, no piped stdin) restores this directory's last session.
+      local from_stdin = false
+      vim.api.nvim_create_autocmd('StdinReadPre', { callback = function() from_stdin = true end })
+      vim.api.nvim_create_autocmd('VimEnter', {
+        nested = true, -- let restored buffers fire FileType, so LSP and treesitter attach
+        callback = function()
+          if vim.fn.argc() == 0 and not from_stdin then
+            require('persistence').load()
+          end
+        end,
+      })
+    end,
     keys = {
       { '<leader>p', function() require('persistence').load() end, desc = 'Restore Session' },
     },
