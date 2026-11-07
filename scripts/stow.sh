@@ -66,4 +66,12 @@ echo "→ Stowing: ${PACKAGES[*]}"
 # --restow cleanly re-links (handles renamed/removed files); adopt is intentionally
 # NOT used so existing real files are reported as conflicts instead of overwritten.
 stow -v --restow --target="$HOME" "${PACKAGES[@]}"
+
+# claude gets per-file links (--no-folding) so stow never turns ~/.claude itself
+# into a repo symlink - Claude Code writes history/sessions there. Skipped in
+# dev containers, where ~/.claude is often bind-mounted from the host.
+if [[ "$PROFILE" != devcontainer ]]; then
+  echo "→ Stowing (no folding): claude"
+  stow -v --restow --no-folding --target="$HOME" claude
+fi
 echo "✓ Done."

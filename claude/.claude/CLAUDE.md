@@ -1,4 +1,8 @@
-# global agent instructions
+# Sahar agent instructions
+
+These are common instructions for Sahar agents across all scenarios.
+
+## General Guidelines
 
 - Never use the em dash "—". Use plain dash "-" instead
 - When writing commit messages, NEVER auto-add your agent name as co-author
