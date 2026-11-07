@@ -37,7 +37,7 @@ for command_name in "${REQUIRED[@]}"; do
 done
 
 if [[ "$PROFILE" == bazzite-hyprland ]]; then
-  for config in hyprland waybar swayosd dunst; do
+  for config in hypr waybar swayosd dunst; do
     if [[ -e "$HOME/.config/$config" ]]; then
       printf '  [ok]   ~/.config/%s\n' "$config"
     else
