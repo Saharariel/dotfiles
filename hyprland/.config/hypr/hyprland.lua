@@ -31,6 +31,9 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("waybar & hyprpaper & hypridle & dunst &")
     hl.exec_cmd("GSK_RENDERER=cairo swayosd-server 2>/dev/null")
     hl.exec_cmd("/usr/libexec/pam_kwallet_init") -- KDE Wallet unlock with SDDM
+    -- Polkit agent for GUI password prompts. Bazzite ships KDE's, but its
+    -- autostart entry is KDE-only, so start it here.
+    hl.exec_cmd("/usr/libexec/kf6/polkit-kde-authentication-agent-1")
     hl.exec_cmd("vicinae server")                -- exclude this if using uwsm
 end)
 
