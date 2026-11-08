@@ -44,10 +44,10 @@ if [[ "$booted_image" == *"$IMAGE"* ]]; then
 else
   print_warn "Booted image is: ${booted_image:-unknown}"
   echo "   Switch to the custom image, then reboot:"
-  echo "     rpm-ostree reset"
-  echo "     sudo bootc switch $IMAGE:latest"
+  echo "     sudo rpm-ostree reset"
+  echo "     sudo rpm-ostree rebase ostree-unverified-registry:$IMAGE:latest"
   echo "   After that first boot, enforce signatures:"
-  echo "     sudo bootc switch --enforce-container-sigpolicy $IMAGE:latest"
+  echo "     sudo rpm-ostree rebase ostree-image-signed:docker://$IMAGE:latest"
 fi
 if ((layered > 0)); then
   print_warn "$layered rpm-ostree layered package(s). Move them into the image repo instead."
