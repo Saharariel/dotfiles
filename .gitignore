@@ -1,6 +1,8 @@
 # Private / machine-local config — never tracked (lives in $HOME, not the repo)
 .zshrc.local
 *.local
+# ...but the stowed ~/.local tree of dbus-overrides is real config
+!/dbus-overrides/.local
 
 # zsh completion + dump cache (regenerated on startup)
 .zcompdump*

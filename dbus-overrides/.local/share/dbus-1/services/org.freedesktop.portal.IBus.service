@@ -1,0 +1,7 @@
+# No IBus daemon runs in the Hyprland session (keyboard layouts switch via xkb,
+# no input method is used). Steam's runtime still asks for this portal at login,
+# and the stock ibus-portal then exits 1 ("Not connected to the ibus bus"),
+# which uwsm's fumon reports as a failed unit. Make the activation a clean no-op.
+[D-BUS Service]
+Name=org.freedesktop.portal.IBus
+Exec=/usr/bin/true
