@@ -74,4 +74,11 @@ if [[ "$PROFILE" != devcontainer ]]; then
   echo "→ Stowing (no folding): claude"
   stow -v --restow --no-folding --target="$HOME" claude
 fi
+
+# Session D-Bus service overrides live under ~/.local/share, which other apps
+# also write to, so link per file instead of folding whole directories.
+if [[ "$PROFILE" == bazzite-hyprland ]]; then
+  echo "→ Stowing (no folding): dbus-overrides"
+  stow -v --restow --no-folding --target="$HOME" dbus-overrides
+fi
 echo "✓ Done."
