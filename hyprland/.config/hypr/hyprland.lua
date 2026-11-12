@@ -118,6 +118,7 @@ hl.config({
     misc = {
         force_default_wallpaper = -1,
         disable_hyprland_logo   = false,
+        vrr                     = 2, -- Adaptive sync only for fullscreen windows (games); both monitors support 48-165Hz
     },
 
     input = {
